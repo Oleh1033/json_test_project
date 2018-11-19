@@ -7,3 +7,6 @@
 .num {
     display: none;
 }
+#prev_ {
+    display: inline-block;
+}
