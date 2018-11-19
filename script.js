@@ -86,8 +86,9 @@ $("#3num").on('click', function () {
 $("#next").on('click', function () {
 
 
-    if(currentPage<4){
+    if(currentPage<3){
         $("#users").empty();
+        currentPage++;
         $.get(
             "https://reqres.in/api/users?page=" + currentPage +" " ,
             function(data){
@@ -103,9 +104,6 @@ $("#next").on('click', function () {
 
             }
         );
-        if(currentPage!=3){
-            ++currentPage;
-        }
 
     }
 
