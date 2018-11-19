@@ -2,7 +2,6 @@ $(document).ready(function() {
     showTable(1)
 });
 
-
 var currentPage = 1;
 var totalPages = 0;
 
@@ -18,42 +17,28 @@ var showTable = function (page) {
         function(data){
             totalPages = data.total_pages;
             for(var i=0;i<data.data.length;i++){
-                $('#users').append('<tr><td>edit</td><td>' + data.data[i].id + '</td><td>'+currentPage + data.data[i].first_name +
+                $('#users').append('<tr><td>edit</td><td>' + data.data[i].id + '</td><td>'+page + data.data[i].first_name +
                     '</td><td>' + data.data[i].last_name + '</td><td><img src="' + data.data[i].avatar + '" alt=""></td><tr>');
             }
+
         }
     );
 };
 
 
 
-$("#1").on('click', function () {
+
+for(var j=1; j<5; j++){
+    $('#pagination').append('<li class="page-item"><a class="page-link" href="javascript:void(0)" >' + j + '</a></li>');
+}
+
+$("li.page-item").on("click", function () {
+    var current;
+    current = $(this).index()-1;
     cleanAppend();
-    currentPage = 1;
-    showTable(currentPage);
+    showTable(current);
+
 });
-
-
-$("#2").on('click', function () {
-    cleanAppend();
-    currentPage = 2;
-    showTable(currentPage);
-});
-
-$("#3").on('click', function () {
-    cleanAppend();
-    currentPage = 3;
-    showTable(currentPage);
-});
-
-$("#4").on('click', function () {
-    cleanAppend();
-    currentPage = 4;
-    showTable(currentPage);
-});
-
-
-
 
 $("#next").on('click', function () {
     if(currentPage<totalPages){
@@ -71,3 +56,34 @@ $("#prev").on('click', function () {
         showTable(currentPage);
     }
 });
+
+//
+//$("#1").on('click', function () {
+//    cleanAppend();
+//    currentPage = 1;
+//    showTable(currentPage);
+//});
+//
+//
+//$("#2").on('click', function () {
+//    cleanAppend();
+//    currentPage = 2;
+//    showTable(currentPage);
+//});
+//
+//$("#3").on('click', function () {
+//    cleanAppend();
+//    currentPage = 3;
+//    showTable(currentPage);
+//});
+//
+//$("#4").on('click', function () {
+//    cleanAppend();
+//    currentPage = 4;
+//    showTable(currentPage);
+//});
+//
+
+
+
+
