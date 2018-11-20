@@ -3,34 +3,30 @@ $(document).ready(function() {
 });
 
 var currentPage = 1;
-var totalPages = 0;
-
+var totalPages = 2;
+var jdk ;
 var u = $("#users");
 var cleanAppend = function () {
     u.empty();
-    u.append('<tr><td></td><td>Id</td><td>First Name</td> <td>Last Name</td> <td>Foto</td> <tr>');
+    u.append('<tr><td></td><td>Id</td><td>First Name</td><td>Last Name</td><td>Foto</td><tr>');
 };
+
+for (var j = 1; j < 5; j++) {
+    $('#pagination').append('<li class="page-item"><a class="page-link" href="javascript:void(0)" >' + j + '</a></li>');
+}
 
 var showTable = function (page) {
     $.get(
         "https://reqres.in/api/users?page="+page+"" ,
-        function(data){
+        function(data) {
             totalPages = data.total_pages;
-            for(var i=0;i<data.data.length;i++){
-                $('#users').append('<tr><td>edit</td><td>' + data.data[i].id + '</td><td>'+page + data.data[i].first_name +
+            jdk = totalPages;
+            for (var i = 0; i < data.data.length; i++) {
+                $('#users').append('<tr><td>edit</td><td>' + data.data[i].id + '</td><td>' + page + data.data[i].first_name +
                     '</td><td>' + data.data[i].last_name + '</td><td><img src="' + data.data[i].avatar + '" alt=""></td><tr>');
             }
-
-        }
-    );
+        })
 };
-
-
-
-
-for(var j=1; j<5; j++){
-    $('#pagination').append('<li class="page-item"><a class="page-link" href="javascript:void(0)" >' + j + '</a></li>');
-}
 
 $("li.page-item").on("click", function () {
     var current;
@@ -46,7 +42,6 @@ $("#next").on('click', function () {
         currentPage++;
         showTable(currentPage);
     }
-
 });
 
 $("#prev").on('click', function () {
@@ -56,34 +51,5 @@ $("#prev").on('click', function () {
         showTable(currentPage);
     }
 });
-
-//
-//$("#1").on('click', function () {
-//    cleanAppend();
-//    currentPage = 1;
-//    showTable(currentPage);
-//});
-//
-//
-//$("#2").on('click', function () {
-//    cleanAppend();
-//    currentPage = 2;
-//    showTable(currentPage);
-//});
-//
-//$("#3").on('click', function () {
-//    cleanAppend();
-//    currentPage = 3;
-//    showTable(currentPage);
-//});
-//
-//$("#4").on('click', function () {
-//    cleanAppend();
-//    currentPage = 4;
-//    showTable(currentPage);
-//});
-//
-
-
 
 
