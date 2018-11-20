@@ -22,7 +22,7 @@ $(document).ready(function() {
     $.get(
         "https://reqres.in/api/users?page=1" ,
         function(data) {
-            
+
             showTable(1);
 
             var totalPages = data.total_pages;
@@ -34,6 +34,7 @@ $(document).ready(function() {
             $("li.page-item").on("click", function () {
                 var current;
                 current = $(this).index()-1;
+                currentPage = current;
                 cleanAppend();
                 showTable(current);
 
