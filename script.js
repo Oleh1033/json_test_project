@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
     var currentPage = 1;
@@ -12,11 +13,10 @@ $(document).ready(function() {
             "https://reqres.in/api/users?page="+page+"" ,
             function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#users').append('<tr><td>edit</td><td>' + data.data[i].id + '</td><td>' + page + data.data[i].first_name +
+                    $('#users').append('<tr><td><a href="javascript: onClick=showPage('+data.data[i].id+')">edit</a></td><td>' + data.data[i].id + '</td><td>' + page + data.data[i].first_name +
                         '</td><td>' + data.data[i].last_name + '</td><td><img src="' + data.data[i].avatar + '" alt=""></td><tr>');
                 }
             });
-
     };
 
     $.get(
@@ -55,9 +55,14 @@ $(document).ready(function() {
                     showTable(currentPage);
                 }
             });
-
         })
 });
+
+
+var showPage = function (numCustomer) {
+    alert(numCustomer)
+};
+
 
 
 
