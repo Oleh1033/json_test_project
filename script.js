@@ -49,7 +49,6 @@ $(document).ready(function () {
                 $('#pagination').append('<li class="page-item" id="'+ j +'"><a class="page-link" href="javascript:void(0)" >' + j + '</a></li>');
             }
             $("li#1").addClass(" active");
-            
             chekNumber();
 
             $("li.page-item").on("click", function () {

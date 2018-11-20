@@ -77,6 +77,10 @@ input{
 }
 
 .disabled {
-    background-color: #bababa;
-    color: #656565;
+    background-color: #ebebeb;
+    color: #c0c0c0;
+}
+.disabled:hover {
+    background-color: #ebebeb;
+    color: #c0c0c0;
 }
