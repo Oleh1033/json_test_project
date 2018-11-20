@@ -75,3 +75,8 @@ input{
     font-size: 36px;
     padding-left: 40px;
 }
+
+.disabled {
+    background-color: #bababa;
+    color: #656565;
+}
